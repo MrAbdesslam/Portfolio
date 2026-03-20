@@ -1,0 +1,308 @@
+/* ===== NAVBAR CSS ===== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.navbar.dark {
+  background: rgba(10, 10, 20, 0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+}
+
+.navbar.light {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(139, 92, 246, 0.15);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-text {
+  font-family: "Press Start 2P", cursive;
+  font-size: 1.3rem;
+  background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  cursor: pointer;
+  text-shadow: none;
+  filter: drop-shadow(0 0 12px rgba(139, 92, 246, 0.6));
+  transition: filter 0.3s ease;
+}
+
+.logo-text:hover {
+  filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.9));
+}
+
+/* Nav Links */
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.nav-links a {
+  font-family: "Press Start 2P", cursive;
+  font-size: 0.55rem;
+  text-decoration: none;
+  letter-spacing: 0.05em;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.navbar.dark .nav-links a {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.navbar.light .nav-links a {
+  color: rgba(30, 20, 60, 0.75);
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #8b5cf6, #06b6d4);
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.navbar.dark .nav-links a:hover {
+  color: #a78bfa;
+}
+
+.navbar.light .nav-links a:hover {
+  color: #7c3aed;
+}
+
+/* Active link */
+.nav-links a.active {
+  color: #a78bfa !important;
+}
+
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* Right Controls */
+.navbar-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* CV Download Button */
+.cv-download {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  background: rgba(139, 92, 246, 0.05);
+  transform-style: preserve-3d;
+}
+
+.navbar.dark .cv-download {
+  color: #a78bfa;
+}
+
+.navbar.light .cv-download {
+  color: #7c3aed;
+  background: rgba(139, 92, 246, 0.08);
+}
+
+.cv-download:hover {
+  background: rgba(139, 92, 246, 0.2);
+  border-color: #8b5cf6;
+  transform: perspective(800px) rotateX(10deg) rotateY(-10deg) scale3d(1.05, 1.05, 1.05);
+  box-shadow: 0 10px 20px rgba(139, 92, 246, 0.25);
+}
+
+.cv-download:hover span, .cv-download:hover svg {
+  transform: translateZ(15px);
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.cv-text {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.45rem;
+  letter-spacing: 0.05em;
+}
+
+/* Dark Mode Toggle */
+.dark-toggle {
+  background: none;
+  border: 2px solid transparent;
+  border-image: linear-gradient(135deg, #8b5cf6, #06b6d4) 1;
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  padding: 0;
+  border: 2px solid rgba(139, 92, 246, 0.5);
+  border-radius: 50%;
+  transform-style: preserve-3d;
+}
+
+.navbar.dark .dark-toggle {
+  color: #a78bfa;
+}
+
+.navbar.light .dark-toggle {
+  color: #7c3aed;
+  background: rgba(139, 92, 246, 0.05);
+}
+
+.dark-toggle:hover {
+  background: rgba(139, 92, 246, 0.2);
+  border-color: #8b5cf6;
+  transform: perspective(500px) rotateX(15deg) rotateY(15deg) scale3d(1.1, 1.1, 1.1);
+  box-shadow: 0 10px 20px rgba(139, 92, 246, 0.4);
+}
+
+.dark-toggle:hover svg {
+  transform: translateZ(15px);
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.dark-toggle:focus {
+  outline: none;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 28px;
+  height: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  position: relative;
+  z-index: 1100;
+}
+
+.hamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  transition: all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.navbar.dark .hamburger span {
+  background-color: #a78bfa;
+}
+
+.navbar.light .hamburger span {
+  background-color: #7c3aed;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+    padding: 1rem 0;
+    transform: translateY(-120%);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: 999;
+  }
+
+  .navbar.dark .nav-links {
+    background: rgba(10, 10, 20, 0.97);
+    border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+  }
+
+  .navbar.light .nav-links {
+    background: rgba(255, 255, 255, 0.97);
+    border-bottom: 1px solid rgba(139, 92, 246, 0.15);
+  }
+
+  .nav-links.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .nav-links li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 1.2rem 2rem;
+    font-size: 0.5rem;
+    letter-spacing: 0.1em;
+  }
+
+  .nav-links a::after {
+    display: none;
+  }
+}

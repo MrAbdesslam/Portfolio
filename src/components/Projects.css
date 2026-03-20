@@ -1,0 +1,323 @@
+/* === PROJECTS PAGE === */
+.projects-page {
+  position: relative;
+  min-height: 100vh;
+  padding: 100px 2rem 6rem;
+  overflow: hidden;
+  transition: background 0.4s ease;
+}
+
+.projects-page.dark  { background: #050510; }
+.projects-page.light { background: linear-gradient(135deg, #f5f0ff 0%, #eef6ff 50%, #fdf0ff 100%); }
+
+/* BG */
+.projects-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.projects-grid-overlay {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(139,92,246,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139,92,246,.05) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.proj-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+}
+
+.pb1 {
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(139,92,246,0.18) 0%, transparent 70%);
+  top: -200px; right: -150px;
+}
+.pb2 {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(6,182,212,0.15) 0%, transparent 70%);
+  bottom: -100px; left: -100px;
+}
+
+/* Container */
+.projects-container {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header */
+.projects-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.projects-tag {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.55rem;
+  color: #8b5cf6;
+  letter-spacing: 0.2em;
+  margin-bottom: 1rem;
+}
+
+.projects-title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: clamp(1.5rem, 4vw, 3rem);
+  background: linear-gradient(135deg, #ffffff 30%, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+}
+
+.projects-page.light .projects-title {
+  background: linear-gradient(135deg, #1e0050 30%, #7c3aed);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.projects-underline {
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #8b5cf6, #06b6d4);
+  margin: 0 auto 1.2rem;
+  border-radius: 2px;
+}
+
+.projects-subtitle {
+  font-family: system-ui, sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.03em;
+}
+
+.projects-page.dark  .projects-subtitle { color: rgba(203,213,225,0.5); }
+.projects-page.light .projects-subtitle { color: rgba(45,0,128,0.5); }
+
+/* === GRID === */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 2rem;
+}
+
+/* === CARD === */
+.project-card {
+  border-radius: 16px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1), box-shadow 0.4s ease;
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+.projects-page.dark .project-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(139,92,246,0.15);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+}
+
+.projects-page.light .project-card {
+  background: rgba(255,255,255,0.7);
+  border: 1px solid rgba(139,92,246,0.18);
+  box-shadow: 0 4px 24px rgba(139,92,246,0.08);
+}
+
+.project-card:hover {
+  transform: perspective(1000px) rotateX(4deg) rotateY(-4deg) scale3d(1.02, 1.02, 1.02);
+}
+
+.project-card:hover .card-body {
+  transform: translateZ(30px);
+}
+
+.project-card:hover .card-thumb {
+  transform: translateZ(15px);
+}
+
+.projects-page.dark .project-card:hover {
+  box-shadow: 0 20px 50px rgba(139,92,246,0.3);
+  border-color: rgba(139,92,246,0.5);
+}
+
+.projects-page.light .project-card:hover {
+  box-shadow: 0 20px 40px rgba(139,92,246,0.2);
+  border-color: rgba(139,92,246,0.4);
+}
+
+/* Thumbnail */
+.card-thumb {
+  width: 100%;
+  height: 200px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* CSS gradient thumbnails */
+.thumb-1 { background: linear-gradient(135deg, #1a0533 0%, #2d1465 40%, #0e3460 100%); }
+.thumb-2 { background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 40%, #312e81 100%); }
+.thumb-3 { background: linear-gradient(135deg, #0c0a1e 0%, #4c1d95 50%, #0e7490 100%); }
+.thumb-4 { background: linear-gradient(135deg, #14001f 0%, #7c3aed 60%, #06b6d4 100%); }
+.thumb-5 { background: linear-gradient(135deg, #042f2e 0%, #064e3b 40%, #1e3a5f 100%); }
+.thumb-6 { background: linear-gradient(135deg, #0c1445 0%, #1e40af 50%, #06b6d4 100%); }
+
+/* Grid lines on thumbnail */
+.thumb-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 1rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, rgba(0,0,0,0.1) 50%, transparent 100%);
+}
+
+.thumb-label {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.6rem;
+  color: rgba(255,255,255,0.9);
+  letter-spacing: 0.1em;
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+  background: rgba(0,0,0,0.3);
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  backdrop-filter: blur(4px);
+}
+
+/* Card Body */
+.card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  flex: 1;
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.card-name {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  line-height: 1.6;
+}
+
+.projects-page.dark  .card-name { color: #e2e8f0; }
+.projects-page.light .card-name { color: #1e0050; }
+
+.card-desc {
+  font-family: system-ui, sans-serif;
+  font-size: 0.82rem;
+  line-height: 1.7;
+  flex: 1;
+}
+
+.projects-page.dark  .card-desc { color: rgba(148,163,184,0.8); }
+.projects-page.light .card-desc { color: rgba(45,0,128,0.6); }
+
+/* Tech Badges */
+.card-techs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.4rem;
+}
+
+.tech-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.7rem;
+  border-radius: 6px;
+  transition: all 0.25s ease;
+}
+
+.projects-page.dark .tech-badge {
+  background: rgba(139,92,246,0.1);
+  border: 1px solid rgba(139,92,246,0.2);
+}
+
+.projects-page.light .tech-badge {
+  background: rgba(139,92,246,0.08);
+  border: 1px solid rgba(139,92,246,0.15);
+}
+
+.tech-badge:hover {
+  background: rgba(139,92,246,0.2);
+  border-color: rgba(139,92,246,0.4);
+  transform: translateY(-2px);
+}
+
+.tech-icon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.tech-name {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.38rem;
+  letter-spacing: 0.05em;
+}
+
+.projects-page.dark  .tech-name { color: rgba(167,139,250,0.9); }
+.projects-page.light .tech-name { color: #7c3aed; }
+
+/* Card Button */
+.card-btn {
+  margin-top: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.5rem;
+  border-radius: 8px;
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.45rem;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  background: linear-gradient(135deg, #8b5cf6, #06b6d4);
+  color: #ffffff;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 20px rgba(139,92,246,0.3);
+}
+
+.card-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 35px rgba(139,92,246,0.6);
+  color: #ffffff;
+  gap: 0.9rem;
+}
+
+.card-btn svg {
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.card-btn:hover svg {
+  transform: translateX(4px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .projects-title {
+    font-size: clamp(1rem, 6vw, 1.8rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-page {
+    padding: 90px 1rem 4rem;
+  }
+}
