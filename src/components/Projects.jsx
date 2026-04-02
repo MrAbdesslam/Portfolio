@@ -97,6 +97,18 @@ const projects = [
     ],
     link: 'https://bitforge-2.netlify.app/',
   },
+  {
+    id: 9,
+    name: 'Beauty Shop',
+    description: 'A botanical-inspired beauty e-commerce store with a clean aesthetic, product categories, and a seamless shopping experience.',
+    thumb: '/img9.png',
+    techs: [
+      { name: 'React',       icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+      { name: 'Tailwind',    icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg' },
+      { name: 'CSS3',        icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+    ],
+    link: 'https://shopbeauty-botanicl.netlify.app/',
+  },
 ];
 
 const Projects = ({ isDark }) => {
